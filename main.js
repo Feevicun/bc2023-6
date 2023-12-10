@@ -17,7 +17,7 @@ const {
 } = require('./valfunctions');
 
 
-const upload = multer({dest: 'uploads/'});
+const upload = multer({dest: 'photos/'});
 
 const port = 8000;
 
@@ -29,7 +29,7 @@ app.use(bodyParser.json());
 
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
-app.use('/images', express.static('uploads'));
+app.use('/images', express.static('photos'));
 
 //Devices
 
@@ -112,18 +112,6 @@ app.put('/devices/:id/unassign', (req, res) => {
         }
     }
 });
-
-app.post('/devices/:id/image', upload.single('image'), (req, res) => {
-    var temp = devices.filter((obj) => obj.id == req.params.id);
-
-    if (temp.length == 0) {
-        res.sendStatus(404);
-    } else {
-        temp[0].image_path = req.file.filename;
-        res.sendStatus(200);
-    }
-});
-
 
 app.put('/devices/:id/image', upload.single('image'), (req, res) => {
     var temp = devices.filter((obj) => obj.id == req.params.id);
