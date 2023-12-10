@@ -1,14 +1,13 @@
 {
     "openapi": "3.0.3",
     "info": {
-        "title": "Inventory Management System API",
-        "description": "API for managing devices inventory",
+        "title": "Inventory Management System",
+        "description": "API for managing devices Lab_6",
         "version": "1.0.0"
     },
     "servers": [
         {
-            "url": "http://localhost:8000",
-            "description": "Local server"
+            "url": "http://localhost:8000"
         }
     ],
     "paths": {
@@ -166,7 +165,7 @@
         "/devices/{id}/assign": {
             "put": {
                 "tags": [
-                    "Devices"
+                    "Assign/Unassign"
                 ],
                 "summary": "Assign Device to User",
                 "description": "Assign device to a user by ID",
@@ -213,7 +212,7 @@
         "/devices/{id}/unassign": {
             "put": {
                 "tags": [
-                    "Devices"
+                    "Assign/Unassign"
                 ],
                 "summary": "Unassign Device from User",
                 "description": "Unassign device from a user by ID",
@@ -251,7 +250,7 @@
         "/devices/{id}/image": {
             "put": {
                 "tags": [
-                    "Devices"
+                    "Image"
                 ],
                 "summary": "Upload Device Image",
                 "description": "Upload device image by ID",
@@ -295,7 +294,7 @@
             },
             "get": {
                 "tags": [
-                    "Devices"
+                    "Image"
                 ],
                 "summary": "Retrieve Device Image",
                 "description": "Retrieve device image by ID",
@@ -622,6 +621,7 @@
             }
         }
     }
+    
 }
 
 
